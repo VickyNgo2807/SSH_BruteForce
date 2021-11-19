@@ -44,10 +44,10 @@ while not correct_username or index_u < len(username_list):
         
         except paramiko.AuthenticationException: #for wrong password
             print('Failed [%s:%s]' %(username,password))
-        except Exception as e: #for wrong passwordany other exceptions
+        except Exception as e: #any other exceptions
             print('Error %s: username: %s, password: %s' %(e, username, password))
         finally:
-            index_p=index_p+1
+            index_p+=1
             ssh_client.close();
     index_p=0
     index_u=index_u+1
