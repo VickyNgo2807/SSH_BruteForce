@@ -50,7 +50,7 @@ while not correct_username or index_u < len(username_list):
             index_p+=1
             ssh_client.close();
     index_p=0
-    index_u=index_u+1
+    index_u+=1
     
 if not correct_password:
     print('Dictionary attack failed')
